@@ -1,0 +1,506 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": "cr:examples",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileObject": "cr:fileObject",
+    "fileProperty": "cr:fileProperty",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "citeAs": "RAIL Audio Benchmark. Hugging Face dataset: https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL",
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "datePublished": "2026-05-05",
+  "description": "RAIL is an audio benchmark collection for evaluating auditory, cognitive, quantitative, induction, knowledge, efficiency, and memory reasoning over single- and multi-audio tasks.",
+  "distribution": [
+    {
+      "@id": "all_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/all.jsonl",
+      "description": "Unified benchmark manifest with one JSON object per row.",
+      "encodingFormat": "application/jsonlines",
+      "name": "all.jsonl",
+      "sha256": "7509847f967692e87d2af95407369dd8c687668212e40f429d61b4bd0219690b"
+    },
+    {
+      "@id": "audio_files",
+      "@type": "cr:FileSet",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/audio/",
+      "description": "Audio files referenced by relative paths in the manifest.",
+      "encodingFormat": [
+        "audio/wav",
+        "audio/mpeg",
+        "audio/flac",
+        "audio/ogg"
+      ],
+      "includes": "audio/**/*",
+      "name": "audio"
+    },
+    {
+      "@id": "reasoning__general_rule_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/reasoning__general_rule.jsonl",
+      "description": "Rows for reasoning / general_rule.",
+      "encodingFormat": "application/jsonlines",
+      "name": "reasoning__general_rule.jsonl",
+      "sha256": "693c5fd5b1317e120581b1f4d9fd8b828d95921179d5d277aeacabaea9ede6a9"
+    },
+    {
+      "@id": "reasoning__cognitive_puzzles_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/reasoning__cognitive_puzzles.jsonl",
+      "description": "Rows for reasoning / cognitive_puzzles.",
+      "encodingFormat": "application/jsonlines",
+      "name": "reasoning__cognitive_puzzles.jsonl",
+      "sha256": "f65cedb071942bd46095e3e80113a4735ccd50276efe9ac9efbb3eddcc4b22a1"
+    },
+    {
+      "@id": "reasoning__quantitative_reasoning_prompted_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/reasoning__quantitative_reasoning_prompted.jsonl",
+      "description": "Rows for reasoning / quantitative_reasoning_prompted.",
+      "encodingFormat": "application/jsonlines",
+      "name": "reasoning__quantitative_reasoning_prompted.jsonl",
+      "sha256": "f618303dc29eea1ce9f1a52ce44104cb5227e8c3cdd22183f7d7dbad86e664bf"
+    },
+    {
+      "@id": "reasoning__induction_dataset_mcq_update_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/reasoning__induction_dataset_mcq_update.jsonl",
+      "description": "Rows for reasoning / induction_dataset_mcq_update.",
+      "encodingFormat": "application/jsonlines",
+      "name": "reasoning__induction_dataset_mcq_update.jsonl",
+      "sha256": "aa34551dc6a40e056585710746c4f283d895979b75a2f087131db05fead20783"
+    },
+    {
+      "@id": "auditory__auditory_manifest_all_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/auditory__auditory_manifest_all.jsonl",
+      "description": "Rows for auditory / auditory_manifest_all.",
+      "encodingFormat": "application/jsonlines",
+      "name": "auditory__auditory_manifest_all.jsonl",
+      "sha256": "768de90596259f6358b2bdf91466486b4442b7a60c8ff79b6e8f59aee1ba0ea6"
+    },
+    {
+      "@id": "knowledge__knowledge_manifest_all_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/knowledge__knowledge_manifest_all.jsonl",
+      "description": "Rows for knowledge / knowledge_manifest_all.",
+      "encodingFormat": "application/jsonlines",
+      "name": "knowledge__knowledge_manifest_all.jsonl",
+      "sha256": "47d28614bbeb15fc28a94e2e3b3d59e0af60fa0420059ed772d189780655f9b3"
+    },
+    {
+      "@id": "efficiency__presentation_benchmark_9x200_bench1800_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/efficiency__presentation_benchmark_9x200_bench1800.jsonl",
+      "description": "Rows for efficiency / presentation_benchmark_9x200_bench1800.",
+      "encodingFormat": "application/jsonlines",
+      "name": "efficiency__presentation_benchmark_9x200_bench1800.jsonl",
+      "sha256": "9f11a7347e84684a8a8a8694e46ba649f01a33baa54ac6afaa3f6398ec521faa"
+    },
+    {
+      "@id": "memory__ma_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__ma.jsonl",
+      "description": "Rows for memory / ma.",
+      "encodingFormat": "application/jsonlines",
+      "name": "memory__ma.jsonl",
+      "sha256": "defd2f55b97d135b0864c44396acb7c7c0d8037f20d9a4424eab0a6022e34b60"
+    },
+    {
+      "@id": "memory__m6_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__m6.jsonl",
+      "description": "Rows for memory / m6.",
+      "encodingFormat": "application/jsonlines",
+      "name": "memory__m6.jsonl",
+      "sha256": "c9eeffd74808acc3d759b1cef6a406a4438869e90aaf240543229e49a038565e"
+    },
+    {
+      "@id": "memory__ms_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__ms.jsonl",
+      "description": "Rows for memory / ms.",
+      "encodingFormat": "application/jsonlines",
+      "name": "memory__ms.jsonl",
+      "sha256": "bf5ae8a5846086db51a99ba371a5a07d987d433524eb0d1d8095798eec8de0cb"
+    },
+    {
+      "@id": "memory__mw_voice_editing_preview_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__mw_voice_editing_preview.jsonl",
+      "description": "Rows for memory / mw_voice_editing_preview.",
+      "encodingFormat": "application/jsonlines",
+      "name": "memory__mw_voice_editing_preview.jsonl",
+      "sha256": "56bbeea4e96df1bc76ca9a6d218f0579b9adbd36368468f9251fcc5e9b4798de"
+    },
+    {
+      "@id": "memory__um_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__um.jsonl",
+      "description": "Rows for memory / um.",
+      "encodingFormat": "application/jsonlines",
+      "name": "memory__um.jsonl",
+      "sha256": "594940c34e3cdb5ef3a488a0b2363acb82d6d0b47eed88a0316e7d332705301c"
+    },
+    {
+      "@id": "memory__mm_combination_jsonl",
+      "@type": "cr:FileObject",
+      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__mm_combination.jsonl",
+      "description": "Rows for memory / mm_combination.",
+      "encodingFormat": "application/jsonlines",
+      "name": "memory__mm_combination.jsonl",
+      "sha256": "20b64f8f222fafa801bc7abe316cd05833c836c00ff854b8057fdd9b17e5eb9a"
+    }
+  ],
+  "license": "https://spdx.org/licenses/CC-BY-4.0.html",
+  "name": "RAIL Audio Benchmark",
+  "prov:wasDerivedFrom": [
+    "auditory__auditory_manifest_all",
+    "efficiency__presentation_benchmark_9x200_bench1800",
+    "knowledge__knowledge_manifest_all",
+    "memory__m6",
+    "memory__ma",
+    "memory__mm_combination",
+    "memory__ms",
+    "memory__mw_voice_editing_preview",
+    "memory__um",
+    "reasoning__cognitive_puzzles",
+    "reasoning__general_rule",
+    "reasoning__induction_dataset_mcq_update",
+    "reasoning__quantitative_reasoning_prompted"
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "description": "Source manifests were normalized into a unified JSONL schema; audio files were organized under relative paths; source rows were preserved in metadata_json after sanitizing path fields.",
+      "name": "RAIL benchmark normalization"
+    }
+  ],
+  "rai:dataBiases": "Potential biases include source-dataset selection bias, English-centric prompts, uneven coverage of speakers, environments, tasks, audio qualities, and model-facing question styles. Synthetic or templated tasks may over-represent clean, well-formed instructions compared with naturally occurring audio interactions.",
+  "rai:dataLimitations": "The benchmark is intended for evaluating audio and auditory-cognitive reasoning, not for training production systems or making decisions about individuals. Coverage varies across source datasets, tasks, languages, speakers, environments, and synthetic generation procedures; results may not generalize to all accents, recording conditions, cultures, clinical settings, or real-world auditory tasks. Some rows aggregate processed versions of external datasets and should be used within the license and consent constraints of those sources.",
+  "rai:dataSocialImpact": "Positive impact includes improving transparency and reproducibility for audio reasoning evaluation. Risks include overclaiming general audio understanding, amplifying source-dataset biases, or using speech attributes for profiling. Mitigations include preserving source metadata, documenting limitations, and recommending evaluation-only use.",
+  "rai:dataUseCases": "Validated use cases are benchmark evaluation and diagnostic analysis of audio reasoning systems across the included task categories. The dataset is not validated for model training, human-subject assessment, medical or accessibility diagnosis, surveillance, biometric identification, or high-stakes decision making.",
+  "rai:hasSyntheticData": true,
+  "rai:personalSensitiveInformation": "Some source audio may contain human speech and therefore may encode or reveal sensitive attributes such as language, accent, perceived gender, age, emotion, or cultural background. The benchmark should not be used to identify, profile, or make consequential inferences about individuals.",
+  "recordSet": [
+    {
+      "@id": "rail_records",
+      "@type": "cr:RecordSet",
+      "description": "Unified item-level records for the RAIL benchmark.",
+      "field": [
+        {
+          "@id": "id",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Stable unique identifier for the benchmark item.",
+          "name": "id",
+          "source": {
+            "extract": {
+              "column": "id"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "benchmark",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Top-level benchmark group.",
+          "name": "benchmark",
+          "source": {
+            "extract": {
+              "column": "benchmark"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "subset",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Source subset within a benchmark group.",
+          "name": "subset",
+          "source": {
+            "extract": {
+              "column": "subset"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "task",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Task name where available.",
+          "name": "task",
+          "source": {
+            "extract": {
+              "column": "task"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "subtask",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Subtask or source split where available.",
+          "name": "subtask",
+          "source": {
+            "extract": {
+              "column": "subtask"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "ability",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Normalized CHC-style ability label from the benchmark taxonomy.",
+          "name": "ability",
+          "source": {
+            "extract": {
+              "column": "ability"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "source_id",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Identifier from the source manifest.",
+          "name": "source_id",
+          "source": {
+            "extract": {
+              "column": "source_id"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "question",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Question or query presented to the model.",
+          "name": "question",
+          "source": {
+            "extract": {
+              "column": "question"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "prompt",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Full prompt text, including instructions and choices when available.",
+          "name": "prompt",
+          "source": {
+            "extract": {
+              "column": "prompt"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "choices",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Multiple-choice options or allowed outputs.",
+          "name": "choices",
+          "source": {
+            "extract": {
+              "column": "choices"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "answer",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Gold answer text. For multiple-choice tasks, a prediction is correct if it matches either this field or answer_label.",
+          "name": "answer",
+          "source": {
+            "extract": {
+              "column": "answer"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "answer_label",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Gold answer option label for multiple-choice tasks where available. For MCQ scoring, matching answer or answer_label is counted as correct.",
+          "name": "answer_label",
+          "source": {
+            "extract": {
+              "column": "answer_label"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "audio",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Primary relative audio path.",
+          "name": "audio",
+          "source": {
+            "extract": {
+              "column": "audio"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "audio_paths",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "All relative audio paths required by the item.",
+          "name": "audio_paths",
+          "source": {
+            "extract": {
+              "column": "audio_paths"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "num_audio",
+          "@type": "cr:Field",
+          "dataType": "sc:Integer",
+          "description": "Number of audio files referenced by the item.",
+          "name": "num_audio",
+          "source": {
+            "extract": {
+              "column": "num_audio"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "duration_s",
+          "@type": "cr:Field",
+          "dataType": "sc:Float",
+          "description": "Audio duration in seconds where available.",
+          "name": "duration_s",
+          "source": {
+            "extract": {
+              "column": "duration_s"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "source_manifest",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Original source manifest filename.",
+          "name": "source_manifest",
+          "source": {
+            "extract": {
+              "column": "source_manifest"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        },
+        {
+          "@id": "metadata_json",
+          "@type": "cr:Field",
+          "dataType": "sc:Text",
+          "description": "Sanitized original source row encoded as JSON text.",
+          "name": "metadata_json",
+          "source": {
+            "extract": {
+              "column": "metadata_json"
+            },
+            "fileObject": {
+              "@id": "all_jsonl"
+            }
+          }
+        }
+      ],
+      "name": "rail_records"
+    }
+  ],
+  "url": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL",
+  "version": "1.0.0"
+}

@@ -1,0 +1,104 @@
+{
+  "copy_stats": {
+    "existing": 13059
+  },
+  "missing_audio_count": 0,
+  "missing_audio_examples": [],
+  "rows_without_audio": 0,
+  "skipped_sources": [],
+  "subsets": [
+    {
+      "benchmark": "reasoning",
+      "filename": "reasoning__general_rule.jsonl",
+      "rows": 124,
+      "subset": "general_rule",
+      "task": "sequential_reasoning"
+    },
+    {
+      "benchmark": "reasoning",
+      "filename": "reasoning__cognitive_puzzles.jsonl",
+      "rows": 30,
+      "subset": "cognitive_puzzles",
+      "task": "sequential_reasoning"
+    },
+    {
+      "benchmark": "reasoning",
+      "filename": "reasoning__quantitative_reasoning_prompted.jsonl",
+      "rows": 100,
+      "subset": "quantitative_reasoning_prompted",
+      "task": "quantitative_reasoning"
+    },
+    {
+      "benchmark": "reasoning",
+      "filename": "reasoning__induction_dataset_mcq_update.jsonl",
+      "rows": 68,
+      "subset": "induction_dataset_mcq_update",
+      "task": "induction"
+    },
+    {
+      "benchmark": "auditory",
+      "filename": "auditory__auditory_manifest_all.jsonl",
+      "rows": 1170,
+      "subset": "auditory_manifest_all",
+      "task": "auditory"
+    },
+    {
+      "benchmark": "knowledge",
+      "filename": "knowledge__knowledge_manifest_all.jsonl",
+      "rows": 1014,
+      "subset": "knowledge_manifest_all",
+      "task": "knowledge"
+    },
+    {
+      "benchmark": "efficiency",
+      "filename": "efficiency__presentation_benchmark_9x200_bench1800.jsonl",
+      "rows": 1800,
+      "subset": "presentation_benchmark_9x200_bench1800",
+      "task": "efficiency"
+    },
+    {
+      "benchmark": "memory",
+      "filename": "memory__ma.jsonl",
+      "rows": 150,
+      "subset": "ma",
+      "task": "memory"
+    },
+    {
+      "benchmark": "memory",
+      "filename": "memory__m6.jsonl",
+      "rows": 200,
+      "subset": "m6",
+      "task": "memory"
+    },
+    {
+      "benchmark": "memory",
+      "filename": "memory__ms.jsonl",
+      "rows": 150,
+      "subset": "ms",
+      "task": "memory"
+    },
+    {
+      "benchmark": "memory",
+      "filename": "memory__mw_voice_editing_preview.jsonl",
+      "rows": 150,
+      "subset": "mw_voice_editing_preview",
+      "task": "memory"
+    },
+    {
+      "benchmark": "memory",
+      "filename": "memory__um.jsonl",
+      "rows": 200,
+      "subset": "um",
+      "task": "memory"
+    },
+    {
+      "benchmark": "memory",
+      "filename": "memory__mm_combination.jsonl",
+      "rows": 150,
+      "subset": "mm_combination",
+      "task": "memory"
+    }
+  ],
+  "total_rows": 5306,
+  "unique_audio_files": 6187
+}
