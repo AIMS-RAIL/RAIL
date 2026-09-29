@@ -253,7 +253,7 @@
   .tracks-head .dots { display: flex; gap: 6px; }
   .tracks-head .dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--line-2); }
   .tracks-body { display: grid; grid-template-columns: 250px 1fr; --row: 54px; }
-  .track-labels { border-right: 1px solid var(--hair); }
+  .track-labels { border-right: 1px solid var(--hair); align-self: start; }
   .track {
     height: var(--row); display: flex; align-items: center; gap: 10px; padding: 0 16px; cursor: pointer;
     border-bottom: 1px solid var(--hair); color: var(--text-2); font-size: 14px; transition: background 0.2s;
@@ -279,12 +279,21 @@
   }
 
   /* Stats strip */
-  .stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin: 26px auto 0; max-width: var(--maxw); }
+  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 26px auto 0; max-width: var(--maxw); }
   .stat { padding: 14px 12px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); text-align: center; }
   .stat .n { font-family: var(--display); font-weight: 300; font-size: 30px; color: var(--heading); line-height: 1.2; }
   .stat .l { font-size: 12.5px; color: var(--text-3); letter-spacing: 0.02em; }
-  @media (max-width: 900px) { .stats { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 480px) { .stats { grid-template-columns: repeat(2, 1fr); } .stat .n { font-size: 26px; } }
+  @media (max-width: 760px) {
+    .stats { grid-template-columns: repeat(6, 1fr); }
+    .stat { grid-column: span 2; }
+    .stat:nth-child(n+4) { grid-column: span 3; }
+  }
+  @media (max-width: 480px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat, .stat:nth-child(n+4) { grid-column: auto; }
+    .stat:last-child { grid-column: 1 / -1; }
+    .stat .n { font-size: 26px; }
+  }
 
   /* TL;DR */
   .tldr {
@@ -573,27 +582,27 @@
       <p class="subtitle"><span class="ini">R</span>ethinking <span class="ini">A</span>uditory <span class="ini">I</span>ntelligence in <span class="ini">L</span>arge Audio-Language Models</p>
       <p class="subtitle-2">with a CHC-grounded benchmark</p>
 
-      <!-- Author order and affiliations follow arXiv:2606.11260. -->
+      <!-- Author order follows arXiv:2606.11260; affiliations 3 (HKU) and 4 (Wuhan) as confirmed by the authors. -->
       <p class="authors">
-        <span class="au">Hongyu Jin<sup>1,*</sup></span>
+        <span class="au">Hongyu Jin<sup>1,*</sup><a class="mail" href="mailto:hongyuj1@student.unimelb.edu.au" aria-label="Email Hongyu Jin"><i class="fa-regular fa-envelope"></i></a></span>
         <span class="au">Siyi Wang<sup>1,*</sup></span>
         <span class="au">Yang Xiao<sup>1,*</sup></span>
         <span class="au">Jiaheng Dong<sup>1,*</sup></span>
-        <span class="au">Shihong Tan<sup>3</sup></span>
+        <span class="au">Shihong Tan<sup>4</sup></span>
         <span class="au">Kaiyuan Peng<sup>1</sup></span>
         <span class="au">Georgiana Juravle<sup>2</sup></span>
-        <span class="au">Shanquan Chen<sup>4</sup></span>
-        <span class="au">Gongping Huang<sup>3</sup></span>
+        <span class="au">Shanquan Chen<sup>3</sup></span>
+        <span class="au">Gongping Huang<sup>4</sup></span>
         <span class="au">Hong Jia<sup>5</sup></span>
         <span class="au">Eun-Jung Holden<sup>1</sup></span>
         <span class="au">James Bailey<sup>6</sup></span>
-        <span class="au">Ting Dang<sup>1,†</sup><a class="mail" href="mailto:ting.dang@unimelb.edu.au" aria-label="Email the corresponding author"><i class="fa-regular fa-envelope"></i></a></span>
+        <span class="au">Ting Dang<sup>1,†</sup><a class="mail" href="mailto:ting.dang@unimelb.edu.au" aria-label="Email Ting Dang, the corresponding author"><i class="fa-regular fa-envelope"></i></a></span>
       </p>
       <p class="affil">
         <span><sup>1</sup>The University of Melbourne</span>
         <span><sup>2</sup>Alexandru Ioan Cuza University of Iași</span>
-        <span><sup>3</sup>Wuhan University</span>
-        <span><sup>4</sup>The University of Hong Kong</span>
+        <span><sup>3</sup>The University of Hong Kong</span>
+        <span><sup>4</sup>Wuhan University</span>
         <span><sup>5</sup>The University of Auckland</span>
         <span><sup>6</sup>Monash University</span>
       </p>
@@ -630,7 +639,6 @@
         <div class="stat"><div class="n" data-count="5306" data-sep="1">5,306</div><div class="l">audio QA samples</div></div>
         <div class="stat"><div class="n" data-count="30.6" data-dec="1">30.6</div><div class="l">hours of audio</div></div>
         <div class="stat"><div class="n" data-count="26">26</div><div class="l">LALMs evaluated</div></div>
-        <div class="stat"><div class="n" data-count="24">24</div><div class="l">human listeners</div></div>
       </div>
 
       <div class="tldr">
@@ -1312,7 +1320,8 @@
     var resize = function () {
       var rect = canvas.parentNode.getBoundingClientRect();
       dpr = Math.min(2, window.devicePixelRatio || 1);
-      W = rect.width; H = labels.getBoundingClientRect().height;
+      W = rect.width; H = 0;
+      $$('.track', labels).forEach(function (el) { H += el.getBoundingClientRect().height; });
       canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
       canvas.style.height = H + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -1365,7 +1374,7 @@
     canvas.addEventListener('mouseleave', function () { setHot(-1); });
     canvas.addEventListener('click', function (e) { var r = canvas.getBoundingClientRect(); pick(Math.min(CAPS.length - 1, Math.floor((e.clientY - r.top) / (r.height / CAPS.length)))); });
 
-    if ('ResizeObserver' in window) new ResizeObserver(resize).observe(canvas.parentNode); else addEventListener('resize', resize);
+    if ('ResizeObserver' in window) { var ro = new ResizeObserver(resize); ro.observe(canvas.parentNode); ro.observe(labels); } else addEventListener('resize', resize);
     resize();
     if (reduceMotion) { lastT = 8000; draw(lastT); }
     if ('IntersectionObserver' in window) {
