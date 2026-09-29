@@ -550,8 +550,8 @@
       <nav class="nav-links" id="nav-links" aria-label="Sections">
         <a href="#abstract">Abstract</a>
         <a href="#framework">Framework</a>
+        <a href="#results">Leaderboard</a>
         <a href="#benchmark">Benchmark</a>
-        <a href="#results">Results</a>
         <a href="#human">Human</a>
         <a href="#findings">Findings</a>
         <a href="#bibtex">BibTeX</a>
@@ -724,18 +724,77 @@
     </div>
   </section>
 
-  <!-- ================= 04 BENCHMARK ================= -->
-  <section class="sec" id="benchmark">
+  <!-- ================= 04 RESULTS ================= -->
+  <section class="sec" id="results">
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="sec-num">04</span>
+        <div><span class="sec-kicker">Results</span><h2>Leaderboard: uneven capability profiles across 26 LALMs</h2></div>
+      </div>
+
+      <div class="controls reveal">
+        <div class="seg" role="group" aria-label="Metric">
+          <button type="button" data-metric="judge" aria-pressed="true">LLM-as-Judge</button>
+          <button type="button" data-metric="acc" aria-pressed="false">Strict ACC / B-AUC</button>
+        </div>
+        <div class="seg" role="group" aria-label="Model access">
+          <button type="button" data-filter="all" aria-pressed="true">All 26</button>
+          <button type="button" data-filter="open" aria-pressed="false">Open-source</button>
+          <button type="button" data-filter="closed" aria-pressed="false">Closed-source</button>
+        </div>
+      </div>
+      <div class="table-wrap reveal">
+        <table id="lb">
+          <thead><tr id="lb-head"></tr></thead>
+          <tbody id="lb-body"></tbody>
+        </table>
+      </div>
+      <p class="tcap reveal" id="lb-cap">Table 1. Scores (%) across the five CHC capabilities. Click a column to sort. <b>Bold</b> and <u>underline</u> mark the best and second-best model among the rows shown. Mean is the unweighted average of the five columns; under LLM-as-Judge it gives the paper's open- and closed-source averages of 46.27 and 65.10. Under the strict setting, the efficiency column is B-AUC.</p>
+
+      <div class="callouts reveal">
+        <div class="callout c-gs"><div class="n">65.10 vs. 46.27</div><div class="l">Closed-source vs. open-source mean (LLM-as-Judge)</div></div>
+        <div class="callout c-ga"><div class="n">Gemini 3.1 Pro</div><div class="l">Best model overall</div></div>
+        <div class="callout c-gc"><div class="n">Omni R1</div><div class="l">Best open-source model overall</div></div>
+      </div>
+
+      <h3 class="reveal">Evaluation protocol</h3>
+      <div class="grid-3">
+        <div class="card reveal"><h4>26 models, four lines</h4><p style="font-size:14.5px;color:var(--text-2);margin:0">21 open-source models from 167M to 33.5B parameters and 5 closed-source APIs, covering speech-centered LLMs, general audio-language models, omni multimodal models and closed-source APIs.</p></div>
+        <div class="card reveal"><h4>Two accuracy metrics</h4><p style="font-size:14.5px;color:var(--text-2);margin:0">Strict ACC counts a response as correct only when every token of the final answer matches the ground truth. LLM-as-Judge (GPT-5.4) scores semantic equivalence with the ground truth.</p></div>
+        <div class="card reveal"><h4>Efficiency by B-AUC</h4><p style="font-size:14.5px;color:var(--text-2);margin:0">Efficiency uses reasoning tokens per response as a proxy for computational effort. B-AUC rewards models that reach correct answers within short reasoning budgets. Latency is not used because it depends on serving infrastructure.</p></div>
+      </div>
+
+
+      <h3 class="reveal">Capability distributions and correlations</h3>
+      <div class="fig-row">
+        <figure class="reveal">
+          <div class="plate" data-zoom><img src="assets/figures/violin.webp" alt="Violin plots of LLM-judge scores for the five capabilities across 26 models" loading="lazy"></div>
+          <figcaption><b>Figure 2a.</b> Score distributions across 26 models. Memory has a high mean but the largest spread (std = 22.46).</figcaption>
+        </figure>
+        <figure class="reveal">
+          <div class="plate" data-zoom><img src="assets/figures/partial_corr.webp" alt="Partial Spearman correlation matrix between the five capabilities" loading="lazy"></div>
+          <figcaption><b>Figure 2b.</b> Pairwise correlations between capabilities. Reasoning and memory are most strongly related (ρ = 0.798).</figcaption>
+        </figure>
+      </div>
+      <div class="read reveal" style="margin-top:22px">
+        <p>Knowledge is largely inherited from the text-based LLM, whose pretraining supplies strong semantic priors. Auditory processing needs fine-grained reasoning over frequency structure, spatial cues and temporal dynamics, which current audio encoders learn only weakly.</p>
+        <p>Reasoning and memory correlate most strongly (ρ = 0.798), which suggests shared reliance on multi-step inference. Auditory processing correlates moderately with efficiency (ρ = 0.507) and knowledge (ρ = 0.526): once audio is encoded correctly, models tend to produce shorter reasoning traces, and better auditory grounding also helps them reach stored knowledge through the audio pathway.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 BENCHMARK ================= -->
+  <section class="sec" id="benchmark">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-num">05</span>
         <div><span class="sec-kicker">Benchmark</span><h2>A four-stage, human-in-the-loop curation pipeline</h2></div>
       </div>
       <p class="read reveal">Computer scientists and cognitive experts built RAIL together, with LALMs assisting in data generation. Every stage feeds back into task formulation until both groups agree on ability definitions, task design and sample quality.</p>
 
       <figure class="reveal">
         <div class="plate" data-zoom><img src="assets/figures/data_pipeline.webp" alt="Four-stage pipeline: cognitive framework selection, task formulation, dataset curation, quality control, with a refine loop" loading="lazy"></div>
-        <figcaption><b>Figure 2.</b> The four-stage benchmark curation pipeline of RAIL.</figcaption>
+        <figcaption><b>Figure 3.</b> The four-stage benchmark curation pipeline of RAIL.</figcaption>
       </figure>
 
       <div class="grid-4" style="margin-top:26px">
@@ -766,7 +825,7 @@
           </tbody>
         </table>
       </div>
-      <p class="tcap reveal">Table 1. Data statistics of RAIL. A 640-item human-evaluation subset (20 items per subcapability) was also answered by 24 participants.</p>
+      <p class="tcap reveal">Table 2. Data statistics of RAIL. A 640-item human-evaluation subset (20 items per subcapability) was also answered by 24 participants.</p>
 
       <h3 class="reveal">What existing benchmarks miss</h3>
       <p class="read reveal">Existing audio benchmarks organize evaluation by task or audio domain. None is grounded in a cognitive theory with full coverage, and audio memory and processing efficiency are absent from all of them.</p>
@@ -782,66 +841,8 @@
 
       <figure class="reveal">
         <div class="plate" data-zoom><img src="assets/figures/overview_of_benchmark.webp" alt="Example items for each of the five core capabilities across music, sound and speech" loading="lazy"></div>
-        <figcaption><b>Figure 3.</b> Task formulation for the five core capabilities, with example items spanning music, sound and speech.</figcaption>
+        <figcaption><b>Figure 4.</b> Task formulation for the five core capabilities, with example items spanning music, sound and speech.</figcaption>
       </figure>
-    </div>
-  </section>
-
-  <!-- ================= 05 RESULTS ================= -->
-  <section class="sec" id="results">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num">05</span>
-        <div><span class="sec-kicker">Results</span><h2>Uneven capability profiles across 26 LALMs</h2></div>
-      </div>
-
-      <div class="grid-3">
-        <div class="card reveal"><h4>26 models, four lines</h4><p style="font-size:14.5px;color:var(--text-2);margin:0">21 open-source models from 167M to 33.5B parameters and 5 closed-source APIs, covering speech-centered LLMs, general audio-language models, omni multimodal models and closed-source APIs.</p></div>
-        <div class="card reveal"><h4>Two accuracy metrics</h4><p style="font-size:14.5px;color:var(--text-2);margin:0">Strict ACC counts a response as correct only when every token of the final answer matches the ground truth. LLM-as-Judge (GPT-5.4) scores semantic equivalence with the ground truth.</p></div>
-        <div class="card reveal"><h4>Efficiency by B-AUC</h4><p style="font-size:14.5px;color:var(--text-2);margin:0">Efficiency uses reasoning tokens per response as a proxy for computational effort. B-AUC rewards models that reach correct answers within short reasoning budgets. Latency is not used because it depends on serving infrastructure.</p></div>
-      </div>
-
-      <h3 class="reveal">Leaderboard</h3>
-      <div class="controls reveal">
-        <div class="seg" role="group" aria-label="Metric">
-          <button type="button" data-metric="judge" aria-pressed="true">LLM-as-Judge</button>
-          <button type="button" data-metric="acc" aria-pressed="false">Strict ACC / B-AUC</button>
-        </div>
-        <div class="seg" role="group" aria-label="Model access">
-          <button type="button" data-filter="all" aria-pressed="true">All 26</button>
-          <button type="button" data-filter="open" aria-pressed="false">Open-source</button>
-          <button type="button" data-filter="closed" aria-pressed="false">Closed-source</button>
-        </div>
-      </div>
-      <div class="table-wrap reveal">
-        <table id="lb">
-          <thead><tr id="lb-head"></tr></thead>
-          <tbody id="lb-body"></tbody>
-        </table>
-      </div>
-      <p class="tcap reveal" id="lb-cap">Table 2. Scores (%) across the five CHC capabilities. Click a column to sort. <b>Bold</b> and <u>underline</u> mark the best and second-best model among the rows shown. Mean is the unweighted average of the five columns; under LLM-as-Judge it gives the paper's open- and closed-source averages of 46.27 and 65.10. Under the strict setting, the efficiency column is B-AUC.</p>
-
-      <div class="callouts reveal">
-        <div class="callout c-gs"><div class="n">65.10 vs. 46.27</div><div class="l">Closed-source vs. open-source mean (LLM-as-Judge)</div></div>
-        <div class="callout c-ga"><div class="n">Gemini 3.1 Pro</div><div class="l">Best model overall</div></div>
-        <div class="callout c-gc"><div class="n">Omni R1</div><div class="l">Best open-source model overall</div></div>
-      </div>
-
-      <h3 class="reveal">Capability distributions and correlations</h3>
-      <div class="fig-row">
-        <figure class="reveal">
-          <div class="plate" data-zoom><img src="assets/figures/violin.webp" alt="Violin plots of LLM-judge scores for the five capabilities across 26 models" loading="lazy"></div>
-          <figcaption><b>Figure 4a.</b> Score distributions across 26 models. Memory has a high mean but the largest spread (std = 22.46).</figcaption>
-        </figure>
-        <figure class="reveal">
-          <div class="plate" data-zoom><img src="assets/figures/partial_corr.webp" alt="Partial Spearman correlation matrix between the five capabilities" loading="lazy"></div>
-          <figcaption><b>Figure 4b.</b> Pairwise correlations between capabilities. Reasoning and memory are most strongly related (ρ = 0.798).</figcaption>
-        </figure>
-      </div>
-      <div class="read reveal" style="margin-top:22px">
-        <p>Knowledge is largely inherited from the text-based LLM, whose pretraining supplies strong semantic priors. Auditory processing needs fine-grained reasoning over frequency structure, spatial cues and temporal dynamics, which current audio encoders learn only weakly.</p>
-        <p>Reasoning and memory correlate most strongly (ρ = 0.798), which suggests shared reliance on multi-step inference. Auditory processing correlates moderately with efficiency (ρ = 0.507) and knowledge (ρ = 0.526): once audio is encoded correctly, models tend to produce shorter reasoning traces, and better auditory grounding also helps them reach stored knowledge through the audio pathway.</p>
-      </div>
     </div>
   </section>
 
@@ -1124,7 +1125,7 @@
   ];
   var CAP_BY = {}; CAPS.forEach(function (c) { CAP_BY[c.k] = c; });
 
-  // Main results (Table 2). Order per row: [Ga acc, judge, Gf acc, judge, Gsm acc, judge, Gs B-AUC, judge, Gc acc, judge]
+  // Main results (Table 2 in the paper). Order per row: [Ga acc, judge, Gf acc, judge, Gsm acc, judge, Gs B-AUC, judge, Gc acc, judge]
   var MODELS = [
     ['Audio Flamingo 2', 'open', 'General audio', '11.1B', [26.92, 34.70, 34.16, 36.02, 26.59, 26.73, 20.41, 20.41, 34.62, 35.50]],
     ['Audio Flamingo 3', 'open', 'General audio', '8.6B', [36.75, 45.04, 46.89, 50.00, 65.41, 66.53, 36.38, 44.90, 57.00, 58.28]],
