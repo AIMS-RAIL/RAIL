@@ -1,0 +1,494 @@
+{
+  "version": "2.0.0",
+  "total_rows": 5306,
+  "unique_ids": 5306,
+  "audio": {
+    "files": 6485,
+    "existing": 6485
+  },
+  "overall_duration": {
+    "total_h": 30.43,
+    "mean_s": 20.65,
+    "median_s": 8.0
+  },
+  "checks": {
+    "ids_unique": true,
+    "audio_exists": true,
+    "prompt_present": true,
+    "answer_present": true,
+    "mcq_label_matches_answer": 3184,
+    "mcq_total": 3186,
+    "closed_label_answer_in_choices": true,
+    "mcq_prompt_contains_all_options": 3186,
+    "Ga_rows_match_paper": true,
+    "Ga_tasks_match_paper": true,
+    "Gf_rows_match_paper": true,
+    "Gf_tasks_match_paper": true,
+    "Gsm/Glr_rows_match_paper": true,
+    "Gsm/Glr_tasks_match_paper": true,
+    "Gs_rows_match_paper": true,
+    "Gs_tasks_match_paper": true,
+    "Gc/Gkn_rows_match_paper": true,
+    "Gc/Gkn_tasks_match_paper": true
+  },
+  "capabilities": {
+    "Ga": {
+      "capability": "Auditory Processing",
+      "rows": 1170,
+      "tasks": 7,
+      "duration_rows": 1170,
+      "total_h": 4.98,
+      "mean_s": 15.31,
+      "median_s": 4.0,
+      "paper_table1": {
+        "samples": 1170,
+        "tasks": 7,
+        "total_h": 4.93,
+        "mean_s": 15.17,
+        "median_s": 4.0
+      },
+      "task_breakdown": {
+        "US": {
+          "task": "Speech Sound Discrimination",
+          "rows": 153,
+          "answer_format": {
+            "multiple_choice": 153
+          },
+          "subtasks": {
+            "Emotional Prosody Comparison": 55,
+            "Confusable Word Identification": 58,
+            "Minimal-Pair Discrimination": 40
+          }
+        },
+        "UR": {
+          "task": "Resistance to Auditory Stimulus Distortion",
+          "rows": 181,
+          "answer_format": {
+            "multiple_choice": 181
+          },
+          "subtasks": {
+            "Babble Noise": 65,
+            "Band-Limiting": 40,
+            "Background Music": 36,
+            "Reverberation": 40
+          }
+        },
+        "U8": {
+          "task": "Maintaining and Judging Rhythm",
+          "rows": 160,
+          "answer_format": {
+            "multiple_choice": 160
+          },
+          "subtasks": {
+            "Beat Regularity Detection": 40,
+            "Meter Identification": 38,
+            "Tempo Change Detection": 30,
+            "Tempo Comparison": 52
+          }
+        },
+        "UP": {
+          "task": "Absolute Pitch",
+          "rows": 200,
+          "answer_format": {
+            "multiple_choice": 200
+          },
+          "subtasks": {
+            "MIDI Pitch Identification": 80,
+            "Note Name Identification": 50,
+            "Relative Pitch Comparison": 40,
+            "Frequency Estimation": 30
+          }
+        },
+        "U1/U9": {
+          "task": "Musical Discrimination and Judgment",
+          "rows": 102,
+          "answer_format": {
+            "multiple_choice": 102
+          },
+          "subtasks": {
+            "Aesthetic and Emotional Judgment": 8,
+            "Genre Recognition": 35,
+            "Instrument Identification": 50,
+            "Musical Structure Analysis": 9
+          }
+        },
+        "UL": {
+          "task": "Sound Localization",
+          "rows": 182,
+          "answer_format": {
+            "multiple_choice": 182
+          },
+          "subtasks": {
+            "Direction Identification": 82,
+            "Azimuth Estimation": 50,
+            "Distance Estimation": 30,
+            "Motion Trajectory": 20
+          }
+        },
+        "PC": {
+          "task": "Phonetic Coding",
+          "rows": 192,
+          "answer_format": {
+            "multiple_choice": 192
+          },
+          "subtasks": {
+            "Isolated Phoneme Identification": 42,
+            "Concurrent Phoneme Segregation": 50,
+            "Staggered-Onset Phoneme Identification": 50,
+            "Stereo-Separated Phoneme Identification": 50
+          }
+        }
+      }
+    },
+    "Gf": {
+      "capability": "Reasoning",
+      "rows": 322,
+      "tasks": 3,
+      "duration_rows": 322,
+      "total_h": 3.49,
+      "mean_s": 39.04,
+      "median_s": 25.04,
+      "paper_table1": {
+        "samples": 322,
+        "tasks": 3,
+        "total_h": 5.19,
+        "mean_s": 39.04,
+        "median_s": 25.04
+      },
+      "task_breakdown": {
+        "I": {
+          "task": "Induction",
+          "rows": 68,
+          "answer_format": {
+            "multiple_choice": 68
+          },
+          "subtasks": {
+            "Pattern Abstraction": 34,
+            "Rule Induction": 34
+          }
+        },
+        "RG": {
+          "task": "General Sequential Reasoning",
+          "rows": 154,
+          "answer_format": {
+            "multiple_choice": 154
+          },
+          "subtasks": {
+            "Sequential Reasoning with General Rules": 124,
+            "Auditory Cognitive Puzzle": 30
+          }
+        },
+        "RQ": {
+          "task": "Quantitative Reasoning",
+          "rows": 100,
+          "answer_format": {
+            "open_ended": 50,
+            "multiple_choice": 50
+          },
+          "subtasks": {
+            "Math Reasoning": 50,
+            "Counting": 50
+          }
+        }
+      }
+    },
+    "Gsm/Glr": {
+      "capability": "Memory",
+      "rows": 1000,
+      "tasks": 6,
+      "duration_rows": 1000,
+      "total_h": 12.77,
+      "mean_s": 45.99,
+      "median_s": 28.04,
+      "paper_table1": {
+        "samples": 1000,
+        "tasks": 6,
+        "total_h": 13.0,
+        "mean_s": 46.65,
+        "median_s": 28.64
+      },
+      "task_breakdown": {
+        "MS": {
+          "task": "Memory Span",
+          "rows": 150,
+          "answer_format": {
+            "multiple_choice": 150
+          },
+          "subtasks": {}
+        },
+        "MA": {
+          "task": "Associative Memory",
+          "rows": 150,
+          "answer_format": {
+            "multiple_choice": 150
+          },
+          "subtasks": {}
+        },
+        "MM": {
+          "task": "Meaningful Memory",
+          "rows": 150,
+          "answer_format": {
+            "multiple_choice": 150
+          },
+          "subtasks": {
+            "Multi-Turn Dialogue": 100,
+            "Narrated Passage": 50
+          }
+        },
+        "M6": {
+          "task": "Free Recall Memory",
+          "rows": 200,
+          "answer_format": {
+            "free_recall": 200
+          },
+          "subtasks": {}
+        },
+        "UM": {
+          "task": "Memory for Sound Patterns",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 70,
+            "multiple_choice": 130
+          },
+          "subtasks": {
+            "N-Back": 70,
+            "Speaker Tracking": 70,
+            "Prosodic Contour Matching": 60
+          }
+        },
+        "WM": {
+          "task": "Working Memory",
+          "rows": 150,
+          "answer_format": {
+            "multiple_choice": 150
+          },
+          "subtasks": {}
+        }
+      }
+    },
+    "Gs": {
+      "capability": "Processing Efficiency",
+      "rows": 1800,
+      "tasks": 9,
+      "duration_rows": 1800,
+      "total_h": 2.01,
+      "mean_s": 4.02,
+      "median_s": 1.81,
+      "paper_table1": {
+        "samples": 1800,
+        "tasks": 9,
+        "total_h": 2.01,
+        "mean_s": 4.02,
+        "median_s": 1.81
+      },
+      "task_breakdown": {
+        "P": {
+          "task": "Perceptual Speed",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 200
+          },
+          "subtasks": {}
+        },
+        "R9": {
+          "task": "Rate-of-Test-Taking",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 200
+          },
+          "subtasks": {}
+        },
+        "N": {
+          "task": "Number Facility",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 200
+          },
+          "subtasks": {}
+        },
+        "RS": {
+          "task": "Reading Speed",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 200
+          },
+          "subtasks": {}
+        },
+        "R1": {
+          "task": "Simple Reaction Time",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 200
+          },
+          "subtasks": {}
+        },
+        "R2": {
+          "task": "Choice Reaction Time",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 200
+          },
+          "subtasks": {}
+        },
+        "R4": {
+          "task": "Semantic Processing Speed",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 200
+          },
+          "subtasks": {}
+        },
+        "R7": {
+          "task": "Mental Comparison Speed",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 200
+          },
+          "subtasks": {}
+        },
+        "IT": {
+          "task": "Inspection Time",
+          "rows": 200,
+          "answer_format": {
+            "closed_label": 200
+          },
+          "subtasks": {}
+        }
+      }
+    },
+    "Gc/Gkn": {
+      "capability": "Knowledge",
+      "rows": 1014,
+      "tasks": 7,
+      "duration_rows": 1014,
+      "total_h": 7.18,
+      "mean_s": 25.48,
+      "median_s": 10.49,
+      "paper_table1": {
+        "samples": 1014,
+        "tasks": 7,
+        "total_h": 7.2,
+        "mean_s": 25.48,
+        "median_s": 10.49
+      },
+      "task_breakdown": {
+        "K0": {
+          "task": "General (Verbal) Information",
+          "rows": 143,
+          "answer_format": {
+            "multiple_choice": 143
+          },
+          "subtasks": {}
+        },
+        "LD": {
+          "task": "Language Development",
+          "rows": 181,
+          "answer_format": {
+            "multiple_choice": 181
+          },
+          "subtasks": {}
+        },
+        "LS": {
+          "task": "Listening Ability",
+          "rows": 150,
+          "answer_format": {
+            "multiple_choice": 150
+          },
+          "subtasks": {}
+        },
+        "KL": {
+          "task": "Foreign Language Proficiency",
+          "rows": 193,
+          "answer_format": {
+            "multiple_choice": 193
+          },
+          "subtasks": {}
+        },
+        "A5": {
+          "task": "Geography Achievement",
+          "rows": 65,
+          "answer_format": {
+            "multiple_choice": 65
+          },
+          "subtasks": {}
+        },
+        "MK": {
+          "task": "Mechanical Knowledge",
+          "rows": 141,
+          "answer_format": {
+            "multiple_choice": 141
+          },
+          "subtasks": {
+            "Anomaly Detection": 47,
+            "Machine Identification": 47,
+            "Machine Function Inference": 47
+          }
+        },
+        "BC": {
+          "task": "Knowledge of Behavioral Content",
+          "rows": 141,
+          "answer_format": {
+            "multiple_choice": 141
+          },
+          "subtasks": {}
+        }
+      }
+    }
+  },
+  "answer_issues": [
+    {
+      "id": "reasoning__general_rule__c4cff4ff_a30e_4238_976f_911d60883a7d",
+      "issue": "answer_text_differs_from_labelled_option",
+      "v1_answer": "D. none of the given options",
+      "option": "none of the options"
+    },
+    {
+      "id": "reasoning__general_rule__f34a9281_bb97_4570_bb90_48120aed2a7b",
+      "issue": "gold_fixed_to_matching_option",
+      "v1_answer": "neutralisation reaction",
+      "option": "neutralization reaction",
+      "label": "B"
+    },
+    {
+      "id": "reasoning__general_rule__3cca0620_e62a_4aa7_8d6a_45f19edb2085",
+      "issue": "gold_not_in_choices",
+      "v1_answer": "Thick batter",
+      "choices": [
+        "Solid dough",
+        "Thin soup",
+        "Dry powder",
+        "Stiff paste",
+        "Creamy sauce",
+        "Viscous slurry",
+        "Watery mixture",
+        "Granular mix",
+        "Soft dough",
+        "Dense liquid"
+      ]
+    },
+    {
+      "id": "reasoning__general_rule__79dc9460_b533_4afc_900d_dfe3a4e7640f",
+      "issue": "gold_not_in_choices",
+      "v1_answer": "Increase",
+      "choices": [
+        "Decrease",
+        "Remain constant",
+        "Not enough information",
+        "Fluctuate",
+        "Stabilize",
+        "Drop",
+        "Level off",
+        "Diminish",
+        "Plateau",
+        "Stay the same"
+      ]
+    },
+    {
+      "id": "reasoning__general_rule__102fa0d5_bca8_45c7_83ed_e1004a196c02",
+      "issue": "gold_fixed_to_matching_option",
+      "v1_answer": "It occurs in the beginning",
+      "option": "It occurs only once in the beginning",
+      "label": "D"
+    }
+  ]
+}

@@ -45,174 +45,732 @@
     "transform": "cr:transform"
   },
   "@type": "sc:Dataset",
-  "citeAs": "RAIL Audio Benchmark. Hugging Face dataset: https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL",
+  "name": "RAIL",
+  "description": "RAIL is a CHC-grounded benchmark for large audio-language models with 5,306 items over 5 core capabilities (Auditory Processing, Reasoning, Memory, Processing Efficiency, Knowledge) and 32 sub-capabilities, covering speech, environmental sound and music.",
+  "url": "https://huggingface.co/datasets/AIMS-RAIL/RAIL",
+  "license": "https://spdx.org/licenses/CC-BY-4.0.html",
+  "version": "2.0.0",
+  "datePublished": "2026-06-09",
+  "citeAs": "RAIL: Rethinking Auditory Intelligence in Large Audio-Language Models with a CHC-Grounded Benchmark. arXiv:2606.11260, 2026.",
   "conformsTo": "http://mlcommons.org/croissant/1.1",
-  "datePublished": "2026-05-05",
-  "description": "RAIL is an audio benchmark collection for evaluating auditory, cognitive, quantitative, induction, knowledge, efficiency, and memory reasoning over single- and multi-audio tasks.",
   "distribution": [
     {
-      "@id": "all_jsonl",
-      "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/all.jsonl",
-      "description": "Unified benchmark manifest with one JSON object per row.",
+      "@type": "cr:FileSet",
+      "@id": "manifests",
+      "name": "manifests",
+      "description": "Per-task JSONL manifests, one JSON object per item.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/tree/main/data",
       "encodingFormat": "application/jsonlines",
-      "name": "all.jsonl",
-      "sha256": "7509847f967692e87d2af95407369dd8c687668212e40f429d61b4bd0219690b"
+      "includes": "data/*/*.jsonl"
     },
     {
-      "@id": "audio_files",
       "@type": "cr:FileSet",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/audio/",
-      "description": "Audio files referenced by relative paths in the manifest.",
+      "@id": "audio_files",
+      "name": "audio",
+      "description": "Audio files referenced by relative paths in the manifests.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/tree/main/audio",
       "encodingFormat": [
         "audio/wav",
         "audio/mpeg",
-        "audio/flac",
-        "audio/ogg"
+        "audio/flac"
       ],
-      "includes": "audio/**/*",
-      "name": "audio"
+      "includes": "audio/**/*"
     },
     {
-      "@id": "reasoning__general_rule_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/reasoning__general_rule.jsonl",
-      "description": "Rows for reasoning / general_rule.",
+      "@id": "task_US",
+      "name": "US.jsonl",
+      "description": "Speech Sound Discrimination (US), Ga.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/auditory_processing/US.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "reasoning__general_rule.jsonl",
-      "sha256": "693c5fd5b1317e120581b1f4d9fd8b828d95921179d5d277aeacabaea9ede6a9"
+      "sha256": "36672c476dd94df4c7ccf3ef57b953e89e456c2ab8bfa7a4d81377081c9525f2",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "reasoning__cognitive_puzzles_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/reasoning__cognitive_puzzles.jsonl",
-      "description": "Rows for reasoning / cognitive_puzzles.",
+      "@id": "task_UR",
+      "name": "UR.jsonl",
+      "description": "Resistance to Auditory Stimulus Distortion (UR), Ga.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/auditory_processing/UR.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "reasoning__cognitive_puzzles.jsonl",
-      "sha256": "f65cedb071942bd46095e3e80113a4735ccd50276efe9ac9efbb3eddcc4b22a1"
+      "sha256": "a90b460ef2a57ec406f0c8d273e884628d9c340037f7032430532f934f4d8219",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "reasoning__quantitative_reasoning_prompted_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/reasoning__quantitative_reasoning_prompted.jsonl",
-      "description": "Rows for reasoning / quantitative_reasoning_prompted.",
+      "@id": "task_U8",
+      "name": "U8.jsonl",
+      "description": "Maintaining and Judging Rhythm (U8), Ga.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/auditory_processing/U8.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "reasoning__quantitative_reasoning_prompted.jsonl",
-      "sha256": "f618303dc29eea1ce9f1a52ce44104cb5227e8c3cdd22183f7d7dbad86e664bf"
+      "sha256": "e934afeb5b07fdeaa017d83a9dfe8356d468115bd8f19064b6cc034c99c278f6",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "reasoning__induction_dataset_mcq_update_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/reasoning__induction_dataset_mcq_update.jsonl",
-      "description": "Rows for reasoning / induction_dataset_mcq_update.",
+      "@id": "task_UP",
+      "name": "UP.jsonl",
+      "description": "Absolute Pitch (UP), Ga.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/auditory_processing/UP.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "reasoning__induction_dataset_mcq_update.jsonl",
-      "sha256": "aa34551dc6a40e056585710746c4f283d895979b75a2f087131db05fead20783"
+      "sha256": "3a0003459577dddae79b362141552528fa4075c34a2866a38497042ab1b6dd04",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "auditory__auditory_manifest_all_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/auditory__auditory_manifest_all.jsonl",
-      "description": "Rows for auditory / auditory_manifest_all.",
+      "@id": "task_U1_U9",
+      "name": "U1_U9.jsonl",
+      "description": "Musical Discrimination and Judgment (U1/U9), Ga.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/auditory_processing/U1_U9.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "auditory__auditory_manifest_all.jsonl",
-      "sha256": "768de90596259f6358b2bdf91466486b4442b7a60c8ff79b6e8f59aee1ba0ea6"
+      "sha256": "66b7fcba44fdecf0c33b7ea4ec1d42e5880ee7accd136c7fb493959dc37b751b",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "knowledge__knowledge_manifest_all_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/knowledge__knowledge_manifest_all.jsonl",
-      "description": "Rows for knowledge / knowledge_manifest_all.",
+      "@id": "task_UL",
+      "name": "UL.jsonl",
+      "description": "Sound Localization (UL), Ga.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/auditory_processing/UL.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "knowledge__knowledge_manifest_all.jsonl",
-      "sha256": "47d28614bbeb15fc28a94e2e3b3d59e0af60fa0420059ed772d189780655f9b3"
+      "sha256": "f69f08021094f877174d84c36e5a94a6824e510abee207ba6d99e1f5948010e5",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "efficiency__presentation_benchmark_9x200_bench1800_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/efficiency__presentation_benchmark_9x200_bench1800.jsonl",
-      "description": "Rows for efficiency / presentation_benchmark_9x200_bench1800.",
+      "@id": "task_PC",
+      "name": "PC.jsonl",
+      "description": "Phonetic Coding (PC), Ga.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/auditory_processing/PC.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "efficiency__presentation_benchmark_9x200_bench1800.jsonl",
-      "sha256": "9f11a7347e84684a8a8a8694e46ba649f01a33baa54ac6afaa3f6398ec521faa"
+      "sha256": "c1d450bc13cb072e7c1047add0a8c693580cbc2423bd51097494a80cf4933858",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "memory__ma_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__ma.jsonl",
-      "description": "Rows for memory / ma.",
+      "@id": "task_I",
+      "name": "I.jsonl",
+      "description": "Induction (I), Gf.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/reasoning/I.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "memory__ma.jsonl",
-      "sha256": "defd2f55b97d135b0864c44396acb7c7c0d8037f20d9a4424eab0a6022e34b60"
+      "sha256": "bc8e2b1314be2c6e9efc4c1ce10a1f41c44dbaf0cfcb68f96382cfcf7ad43e01",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "memory__m6_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__m6.jsonl",
-      "description": "Rows for memory / m6.",
+      "@id": "task_RG",
+      "name": "RG.jsonl",
+      "description": "General Sequential Reasoning (RG), Gf.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/reasoning/RG.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "memory__m6.jsonl",
-      "sha256": "c9eeffd74808acc3d759b1cef6a406a4438869e90aaf240543229e49a038565e"
+      "sha256": "e92c6dd466c5e166787243b4b4abbbd9d3c862d36812961d24ea7978e4dbb8dc",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "memory__ms_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__ms.jsonl",
-      "description": "Rows for memory / ms.",
+      "@id": "task_RQ",
+      "name": "RQ.jsonl",
+      "description": "Quantitative Reasoning (RQ), Gf.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/reasoning/RQ.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "memory__ms.jsonl",
-      "sha256": "bf5ae8a5846086db51a99ba371a5a07d987d433524eb0d1d8095798eec8de0cb"
+      "sha256": "d07eedc75c1ce8b774f053d0471fbf239e614e50a81a289b6ec505fd7e0ff419",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "memory__mw_voice_editing_preview_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__mw_voice_editing_preview.jsonl",
-      "description": "Rows for memory / mw_voice_editing_preview.",
+      "@id": "task_MS",
+      "name": "MS.jsonl",
+      "description": "Memory Span (MS), Gsm/Glr.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/memory/MS.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "memory__mw_voice_editing_preview.jsonl",
-      "sha256": "56bbeea4e96df1bc76ca9a6d218f0579b9adbd36368468f9251fcc5e9b4798de"
+      "sha256": "c66f2fb6c8b0cc28f996a35c26319aa33719c5b15c3e6a5d2a01d3c019f12f94",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "memory__um_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__um.jsonl",
-      "description": "Rows for memory / um.",
+      "@id": "task_MA",
+      "name": "MA.jsonl",
+      "description": "Associative Memory (MA), Gsm/Glr.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/memory/MA.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "memory__um.jsonl",
-      "sha256": "594940c34e3cdb5ef3a488a0b2363acb82d6d0b47eed88a0316e7d332705301c"
+      "sha256": "e3286a4c318a016ada54732e3413c6bd46c0189bf9cd2fe7a84a1269a89a3ad3",
+      "containedIn": {
+        "@id": "manifests"
+      }
     },
     {
-      "@id": "memory__mm_combination_jsonl",
       "@type": "cr:FileObject",
-      "contentUrl": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL/resolve/main/data/memory__mm_combination.jsonl",
-      "description": "Rows for memory / mm_combination.",
+      "@id": "task_MM",
+      "name": "MM.jsonl",
+      "description": "Meaningful Memory (MM), Gsm/Glr.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/memory/MM.jsonl",
       "encodingFormat": "application/jsonlines",
-      "name": "memory__mm_combination.jsonl",
-      "sha256": "20b64f8f222fafa801bc7abe316cd05833c836c00ff854b8057fdd9b17e5eb9a"
+      "sha256": "139b7a7040b6dca7be81bbc2dd1562dccc608fe2ed561dbcd0fbbf5f04f0df84",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_M6",
+      "name": "M6.jsonl",
+      "description": "Free Recall Memory (M6), Gsm/Glr.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/memory/M6.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "715392511411cc8bd1f05898485736776251e764ab2fa05e5ee6be5cff1c2fe9",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_UM",
+      "name": "UM.jsonl",
+      "description": "Memory for Sound Patterns (UM), Gsm/Glr.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/memory/UM.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "8382d0b53948bc817b7da62b48a4779ad1f62f677dd3fbea7435efd71287e05f",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_WM",
+      "name": "WM.jsonl",
+      "description": "Working Memory (WM), Gsm/Glr.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/memory/WM.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "6ab5f72f9d11aeb2dea367b9d18cc0f35c49991098ce95389ca0d58b1b810684",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_P",
+      "name": "P.jsonl",
+      "description": "Perceptual Speed (P), Gs.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/processing_efficiency/P.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "ec66556d9feacc2f17dd1a01b9993b36a82f327d070d1a716e78d579c7ecd900",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_R9",
+      "name": "R9.jsonl",
+      "description": "Rate-of-Test-Taking (R9), Gs.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/processing_efficiency/R9.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "1e6c1c20a30da385e45c99f1bbe4807bac1c6a558c16ea059218cd2ff1bc6e3e",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_N",
+      "name": "N.jsonl",
+      "description": "Number Facility (N), Gs.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/processing_efficiency/N.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "fe785856696f53e9728e1f2288f87dba2db9e3c9fabcb21830e8280351f462ac",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_RS",
+      "name": "RS.jsonl",
+      "description": "Reading Speed (RS), Gs.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/processing_efficiency/RS.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "abcbb9f42e7020af9f96b61a7fb702d90b1c34fb31dcf84f640a31c2e87f1faf",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_R1",
+      "name": "R1.jsonl",
+      "description": "Simple Reaction Time (R1), Gs.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/processing_efficiency/R1.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "475e7c394f98ac0b2b986cbc370bec6463c63e422309cf125663d244220da1ca",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_R2",
+      "name": "R2.jsonl",
+      "description": "Choice Reaction Time (R2), Gs.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/processing_efficiency/R2.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "ab08a1d0d0228cfdb6a4b1dce9f756fd5711777044bf6162ae7ccb2cc1903478",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_R4",
+      "name": "R4.jsonl",
+      "description": "Semantic Processing Speed (R4), Gs.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/processing_efficiency/R4.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "07ea48ecc1b8126f0031a99d2dc0074572fcdee5af272d29083ea7a2bb616ce6",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_R7",
+      "name": "R7.jsonl",
+      "description": "Mental Comparison Speed (R7), Gs.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/processing_efficiency/R7.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "29f64ce345cbb4753381d026b66b2470657254467e666698e8d9aea53a032287",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_IT",
+      "name": "IT.jsonl",
+      "description": "Inspection Time (IT), Gs.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/processing_efficiency/IT.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "dce76d409b4817f8de75ca31df5145f2863ef6467ebc628640f065be6178fb11",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_K0",
+      "name": "K0.jsonl",
+      "description": "General (Verbal) Information (K0), Gc/Gkn.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/knowledge/K0.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "3eaded15c7481011438cf54ccd1efbe83fbcb4b8feba0ac58ec4ddf10027df8d",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_LD",
+      "name": "LD.jsonl",
+      "description": "Language Development (LD), Gc/Gkn.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/knowledge/LD.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "e72eefa75f08cd6c5ef7f63c066e5a11e61aa7aef387fabc1ff0b9d96007bec9",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_LS",
+      "name": "LS.jsonl",
+      "description": "Listening Ability (LS), Gc/Gkn.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/knowledge/LS.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "df261b26a2012177c2a98ae1ae6d5c67ddc3e27726cc1f71a7fac077dd5e1459",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_KL",
+      "name": "KL.jsonl",
+      "description": "Foreign Language Proficiency (KL), Gc/Gkn.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/knowledge/KL.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "e9b75870bd55aa3f5f47a2fb4e46afbf089f2b9eb9494d4e41a08a8e9159cb0d",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_A5",
+      "name": "A5.jsonl",
+      "description": "Geography Achievement (A5), Gc/Gkn.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/knowledge/A5.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "530182326f26e9762e298dc495e0a30e29b8b06f0f09c6211f0496ce325d600f",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_MK",
+      "name": "MK.jsonl",
+      "description": "Mechanical Knowledge (MK), Gc/Gkn.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/knowledge/MK.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "81214d980c70b93b3c007c55b2a8d94d9363e24aeeec476bb01fa2ea38995f0d",
+      "containedIn": {
+        "@id": "manifests"
+      }
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task_BC",
+      "name": "BC.jsonl",
+      "description": "Knowledge of Behavioral Content (BC), Gc/Gkn.",
+      "contentUrl": "https://huggingface.co/datasets/AIMS-RAIL/RAIL/resolve/main/data/knowledge/BC.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "703af444bf0f6631fbcf051f0040932d9f152d8b9e9595f0805158d66075afbb",
+      "containedIn": {
+        "@id": "manifests"
+      }
     }
   ],
-  "license": "https://spdx.org/licenses/CC-BY-4.0.html",
-  "name": "RAIL Audio Benchmark",
-  "prov:wasDerivedFrom": [
-    "auditory__auditory_manifest_all",
-    "efficiency__presentation_benchmark_9x200_bench1800",
-    "knowledge__knowledge_manifest_all",
-    "memory__m6",
-    "memory__ma",
-    "memory__mm_combination",
-    "memory__ms",
-    "memory__mw_voice_editing_preview",
-    "memory__um",
-    "reasoning__cognitive_puzzles",
-    "reasoning__general_rule",
-    "reasoning__induction_dataset_mcq_update",
-    "reasoning__quantitative_reasoning_prompted"
-  ],
-  "prov:wasGeneratedBy": [
+  "recordSet": [
     {
-      "@type": "prov:Activity",
-      "description": "Source manifests were normalized into a unified JSONL schema; audio files were organized under relative paths; source rows were preserved in metadata_json after sanitizing path fields.",
-      "name": "RAIL benchmark normalization"
+      "@type": "cr:RecordSet",
+      "@id": "rail_records",
+      "name": "rail_records",
+      "description": "Item-level records of RAIL.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/id",
+          "name": "id",
+          "description": "Unique item id.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/capability",
+          "name": "capability",
+          "description": "CHC core capability.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "capability"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/capability_code",
+          "name": "capability_code",
+          "description": "CHC broad-ability code.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "capability_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/task",
+          "name": "task",
+          "description": "Sub-capability (CHC narrow ability).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "task"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/task_code",
+          "name": "task_code",
+          "description": "CHC narrow-ability code.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "task_code"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/subtask",
+          "name": "subtask",
+          "description": "Task design within the sub-capability, if any.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "subtask"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/answer_format",
+          "name": "answer_format",
+          "description": "multiple_choice, closed_label, open_ended or free_recall.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "answer_format"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/question",
+          "name": "question",
+          "description": "Question stem.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "question"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/choices",
+          "name": "choices",
+          "description": "Option texts or allowed output labels.",
+          "dataType": "sc:Text",
+          "repeated": true,
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "choices"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/answer",
+          "name": "answer",
+          "description": "Gold answer text.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "answer"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/answer_label",
+          "name": "answer_label",
+          "description": "Gold option letter for multiple-choice items.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "answer_label"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/prompt",
+          "name": "prompt",
+          "description": "Full model-facing prompt used in evaluation.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "prompt"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/audio",
+          "name": "audio",
+          "description": "Primary relative audio path.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "audio"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/audio_paths",
+          "name": "audio_paths",
+          "description": "All relative audio paths in presentation order.",
+          "dataType": "sc:Text",
+          "repeated": true,
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "audio_paths"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/num_audio",
+          "name": "num_audio",
+          "description": "Number of audio clips.",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "num_audio"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/duration_s",
+          "name": "duration_s",
+          "description": "Total audio duration in seconds.",
+          "dataType": "sc:Float",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "duration_s"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/source_id",
+          "name": "source_id",
+          "description": "Item id in the source manifest.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "source_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/legacy_id",
+          "name": "legacy_id",
+          "description": "Item id in RAIL v1.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "legacy_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/legacy_config",
+          "name": "legacy_config",
+          "description": "Config name in RAIL v1.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "legacy_config"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "rail_records/metadata_json",
+          "name": "metadata_json",
+          "description": "Original source row as JSON text.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "manifests"
+            },
+            "extract": {
+              "column": "metadata_json"
+            }
+          }
+        }
+      ]
     }
   ],
   "rai:dataBiases": "Potential biases include source-dataset selection bias, English-centric prompts, uneven coverage of speakers, environments, tasks, audio qualities, and model-facing question styles. Synthetic or templated tasks may over-represent clean, well-formed instructions compared with naturally occurring audio interactions.",
@@ -221,286 +779,14 @@
   "rai:dataUseCases": "Validated use cases are benchmark evaluation and diagnostic analysis of audio reasoning systems across the included task categories. The dataset is not validated for model training, human-subject assessment, medical or accessibility diagnosis, surveillance, biometric identification, or high-stakes decision making.",
   "rai:hasSyntheticData": true,
   "rai:personalSensitiveInformation": "Some source audio may contain human speech and therefore may encode or reveal sensitive attributes such as language, accent, perceived gender, age, emotion, or cultural background. The benchmark should not be used to identify, profile, or make consequential inferences about individuals.",
-  "recordSet": [
-    {
-      "@id": "rail_records",
-      "@type": "cr:RecordSet",
-      "description": "Unified item-level records for the RAIL benchmark.",
-      "field": [
-        {
-          "@id": "id",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Stable unique identifier for the benchmark item.",
-          "name": "id",
-          "source": {
-            "extract": {
-              "column": "id"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "benchmark",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Top-level benchmark group.",
-          "name": "benchmark",
-          "source": {
-            "extract": {
-              "column": "benchmark"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "subset",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Source subset within a benchmark group.",
-          "name": "subset",
-          "source": {
-            "extract": {
-              "column": "subset"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "task",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Task name where available.",
-          "name": "task",
-          "source": {
-            "extract": {
-              "column": "task"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "subtask",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Subtask or source split where available.",
-          "name": "subtask",
-          "source": {
-            "extract": {
-              "column": "subtask"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "ability",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Normalized CHC-style ability label from the benchmark taxonomy.",
-          "name": "ability",
-          "source": {
-            "extract": {
-              "column": "ability"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "source_id",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Identifier from the source manifest.",
-          "name": "source_id",
-          "source": {
-            "extract": {
-              "column": "source_id"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "question",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Question or query presented to the model.",
-          "name": "question",
-          "source": {
-            "extract": {
-              "column": "question"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "prompt",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Full prompt text, including instructions and choices when available.",
-          "name": "prompt",
-          "source": {
-            "extract": {
-              "column": "prompt"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "choices",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Multiple-choice options or allowed outputs.",
-          "name": "choices",
-          "source": {
-            "extract": {
-              "column": "choices"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "answer",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Gold answer text. For multiple-choice tasks, a prediction is correct if it matches either this field or answer_label.",
-          "name": "answer",
-          "source": {
-            "extract": {
-              "column": "answer"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "answer_label",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Gold answer option label for multiple-choice tasks where available. For MCQ scoring, matching answer or answer_label is counted as correct.",
-          "name": "answer_label",
-          "source": {
-            "extract": {
-              "column": "answer_label"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "audio",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Primary relative audio path.",
-          "name": "audio",
-          "source": {
-            "extract": {
-              "column": "audio"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "audio_paths",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "All relative audio paths required by the item.",
-          "name": "audio_paths",
-          "source": {
-            "extract": {
-              "column": "audio_paths"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "num_audio",
-          "@type": "cr:Field",
-          "dataType": "sc:Integer",
-          "description": "Number of audio files referenced by the item.",
-          "name": "num_audio",
-          "source": {
-            "extract": {
-              "column": "num_audio"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "duration_s",
-          "@type": "cr:Field",
-          "dataType": "sc:Float",
-          "description": "Audio duration in seconds where available.",
-          "name": "duration_s",
-          "source": {
-            "extract": {
-              "column": "duration_s"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "source_manifest",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Original source manifest filename.",
-          "name": "source_manifest",
-          "source": {
-            "extract": {
-              "column": "source_manifest"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        },
-        {
-          "@id": "metadata_json",
-          "@type": "cr:Field",
-          "dataType": "sc:Text",
-          "description": "Sanitized original source row encoded as JSON text.",
-          "name": "metadata_json",
-          "source": {
-            "extract": {
-              "column": "metadata_json"
-            },
-            "fileObject": {
-              "@id": "all_jsonl"
-            }
-          }
-        }
-      ],
-      "name": "rail_records"
-    }
+  "prov:wasDerivedFrom": [
+    "https://huggingface.co/datasets/AIMS-RAIL/RAIL (v1.0.0)"
   ],
-  "url": "https://huggingface.co/datasets/AnnoymousNeurLPSsubmit/RAIL",
-  "version": "1.0.0"
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "name": "RAIL v2 re-organisation",
+      "description": "v1 rows were relabelled with the paper's capability/task/subtask taxonomy, given unique ids, normalised to a single answer schema, and memory prompts were rebuilt as used in evaluation."
+    }
+  ]
 }
